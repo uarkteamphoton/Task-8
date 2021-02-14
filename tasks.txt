@@ -1,0 +1,19 @@
+•	Controllers (“controllers” package)
+◦	    Define a MainMenuRouteController.java class
+▪	    To get started you can use the existing ProductDetailRouteController as an example
+•	        Routes, method names, etc will be different, but it is useful as a pattern
+•	        This is used for handling web site navigation/document serving
+▪	    Define a route handler for requesting the view/document
+•	        GET request with “/mainMenu” route/endpoint path
+•	        Parameters
+◦	            Map<String, String> object
+▪	                Use the @RequestParam[1] annotation
+▪	                    This parameter will contain any query string[2,3] parameters passed in the URL
+◦	            HttpServletRequest[4]
+▪	                Use this to access the current session and the associated user
+•	    Functionality
+◦	        If there is an active user for the current session then
+▪	            Should add any error messages received in the query string parameters to the view
+▪	            Should serve up the Main Menu view/document
+◦	        Else
+▪	            Should immediately redirect[5] to the Sign In view/document with an appropriate error message
